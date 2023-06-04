@@ -96,7 +96,7 @@ const commands = [
   },
   {
     "name": "actions",
-    "description": "Ban with confirm",
+    "description": "Actions for users moderation",
     options: [
       {
         "name": "target",
@@ -109,8 +109,30 @@ const commands = [
         "type": 3,
         "description": "Reason of the moderation",
         "required": "true"
+      },
+      {
+        "name": "time",
+        "type": 4,
+        "description": "Time (for mutes)",
+        "required": "false"
       }
     ]
+  },
+  {
+    "name": "reload",
+    "description": "Reloads a command.",
+    options: [
+      {
+        "name": "command",
+        "type": 3,
+        "description": "The command to reload.",
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "name": "info",
+    "description": "Get informations about the bot"
   }
 ];
 console.log(commands);
