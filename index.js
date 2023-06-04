@@ -25,7 +25,7 @@ for (const folder of commandFolders) {
 //
 client.once(Events.ClientReady, () => {
 	console.log(`Ready! Logged in as ${client.user.tag}!`);
-	client.user.setPresence({ activities: [{ name: 'USF.db' }], status: 'dnd' });
+	client.user.setPresence({ activities: [{ name: '/info' }], status: 'online' });
 });
 //
 client.on(Events.InteractionCreate, async interaction => {
