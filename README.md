@@ -1,7 +1,8 @@
-# USFBOT
+# USF BOT
 The USF Bot is a moderation and utility bot created by the USF Team with the scope of making servers easier to moderate with features needed for that.
 
-Commands:
+## Commands:
+
 `/server` Get informations about the server where the command was ran
 
 `/info` Gives you informations about the USF Bot
@@ -18,4 +19,7 @@ Commands:
 
 `/reload` reloads a command | Required Permission: Administrator
 
-`timeout` timeout an user` | Required Permission: ModerateMembers
+`/timeout` timeout an user` | Required Permission: ModerateMembers
+
+
+## You can find the Terms of Service and Privacy Policy in our website!
