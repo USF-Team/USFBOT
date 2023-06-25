@@ -9,17 +9,17 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 `/user` Get informations about an user
 
-`/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: ModerateMembers
+`/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: **ModerateMembers**
 
 `/avatar` Get the avatar of an user
 
-`/ban` ban an user from the server | Required Permission: BanMembers
+`/ban` ban an user from the server | Required Permission: **BanMembers**
 
-`/kick` kick an user from the server | Required Permission: KickMembers
+`/kick` kick an user from the server | Required Permission: **KickMembers**
 
-`/reload` reloads a command | Required Permission: Administrator
+`/reload` reloads a command | Required Permission: **Administrator**
 
-`/timeout` timeout an user | Required Permission: ModerateMembers
+`/timeout` timeout an user | Required Permission: **ModerateMembers**
 
 
 ⚠️ You can find the Terms of Service and Privacy Policy in our website! 
