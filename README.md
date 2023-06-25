@@ -19,7 +19,8 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 `/reload` reloads a command | Required Permission: Administrator
 
-`/timeout` timeout an user` | Required Permission: ModerateMembers
+`/timeout` timeout an user | Required Permission: ModerateMembers
 
 
-## You can find the Terms of Service and Privacy Policy in our website!
+⚠️ You can find the Terms of Service and Privacy Policy in our website! 
+Join our Discord for support: https://dsc.gg/usfteam or mailto usfdiscordteam@gmail.com
