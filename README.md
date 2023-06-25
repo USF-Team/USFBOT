@@ -2,7 +2,7 @@
 The USF Bot is a moderation and utility bot created by the USF Team with the scope of making servers easier to moderate with features needed for that.
 
 Commands:
-`/server` Get informations about the server where the command was ran\n
+`/server` Get informations about the server where the command was ran \n
 `/info` Gives you informations about the USF Bot\n
 `/user` Get informations about an user\n
 `/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: ModerateMembers\n
