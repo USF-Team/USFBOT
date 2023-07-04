@@ -3,6 +3,7 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, ActivityType } = require('discord.js');
 const { token } = require('./config.json');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const { blockedUsers, blockedServers } = require('./blocked.json');
 //
 client.cooldowns = new Collection();
 client.commands = new Collection();
