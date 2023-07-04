@@ -1,4 +1,4 @@
 {
-  blockedUsers : [''],
-  blockedServers : ['']
+  "blockedUsers" : [""],
+  "blockedServers" : [""]
 }
