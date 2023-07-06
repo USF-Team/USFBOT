@@ -36,11 +36,12 @@ We deserve the right to block you or/and your server from using our Bot and to r
 We are not responsible for a wrong use of our bot and we deserve the right to remove access to any users when we feel it appropriate.
 
 ## You are not allowed to...
-1. use our products and/or services with other intent than what it was made for.
-2. use our products and/or services for intents that can break the Discord ToS / Guidelines or are against Law
-3. automate the usage of our products and/or services.
-4. use our product in a way that can damage them.
-5. abuse security flaws and/or bugs in our products and/or services.
+1. use the bot with other intents than what it was made for.
+2. use the bot to break the Discord ToS / Guidelines or the Law
+3. automate the usage of the bot.
+4. use the bot in a way that can damage it.
+5. abuse security flaws and/or bugs in the bot.
+6. try to circumvent a block or edit permissions of the bot
 
 ## What do I do if I find a bug or a security flaw?
 Send a mail to usfdiscordteam@gmail.com or open a **report** ticket in our [Discord server](https://dsc.gg/usfteam)
