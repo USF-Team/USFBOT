@@ -21,6 +21,8 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 `/timeout` timeout an user | Required Permission: **ModerateMembers**
 
+`/modal` (COMING SOON) sends a text from a modal response 
+
 
 ⚠️ You can read more about bots we make in our website! **https://usfteam.pages/dev/**
 If you need support, you can join our Discord Server https://dsc.gg/usfteam or send a mail to usfdiscordteam@gmail.com
