@@ -54,7 +54,7 @@ It is your responsibility to always stay informed of the latest Terms of Service
 DISCLAIMER: We do not knowingly collect data of children under 16. Under article 8 of the GDPR, you are required to have your guardian(s) consent for you before using our products and services if you are under 16.
 
 ## What data do we gather?
-- Guild and User IDs when they gets reported to us to blacklist them.
+- Guild and User IDs when they invite the bot and gets reported to us to blacklist them.
 - Reports sent to us
 
 ## Why do we need this data?
@@ -64,7 +64,7 @@ We need this data to make sure that the USF Bot is not used for other scopes whi
 Only USF Developers have access to this data and they are not allowed to send it anywhere.
 
 ## Where can we discuss about this Privacy Policy?
-You can send a mail to usfdiscordteam@gmail.com or ask in our Discord Server (https://dsc.gg/usfteam) through a support ticket
+You can send a mail to usfdiscordteam@gmail.com or ask in our Discord Server (https://dsc.gg/usfteam) through a support ticket.
 
 ## Changes in the privacy Policy
 It is your responsibility to always stay informed of the latest Privacy Policy. Even if you haven't read it beforehand, you may still be subject to punishment.
