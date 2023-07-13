@@ -5,134 +5,172 @@ const path = require('node:path');
 //
 const commands = [
   {
-    "name": "ping",
-    "description": "Replies with Pong!"
+      "name": "actions",
+      "description": "Moderative actions to users",
+      "dm_permission": "false",
+      options : [
+          {
+              "name": "target",
+              "description": "User to moderate",
+              "type": 6,
+              "required": "true"
+          },
+          {
+              "name": "reason",
+              "description": "Reason of the moderation",
+              "type": 3,
+              "required": "false"
+          },
+          {
+              "name": "duration",
+              "description": "duration for mutes only",
+              "type": 3,
+              "required": "false"
+          }
+      ]
   },
   {
-    "name": "kick",
-    "description": "Select a member and kick them.",
-    options: [
-      {
-        "name": "target",
-        "type": 6,
-        "description": "The member to kick",
-        "required": "true"
-      }
-    ]
+      "name": "avatar",
+      "description": "Get the avatar URL of the selected user, or your own avatar.",
+      "dm_permission": "false",
+      options : [
+          {
+              "name": "target",
+              "description": "The user\'s avatar to show",
+              "type": 6,
+              "required": "false"
+          }
+      ]
   },
   {
-    "name": "avatar",
-    "description": "Get the avatar URL of the selected user, or your own avatar.",
-    options: [
-      {
-        "name": "target",
-        "type": 6,
-        "description": "The user\'s avatar to show",
-        "required": "false"
-      }
-    ]
+      "name": "ban",
+      "description": "Bans an user",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "target",
+              "description": "The user to ban",
+              "type": 6,
+              "required": "true",
+          },
+          {
+              "name": "reason",
+              "description": "Reason of the Ban",
+              "type": 3,
+              "required": "false"
+          }
+      ]
   },
   {
-    "name": "server",
-    "description": "Display info about this server."
+      "name": "google",
+      "description": "Generate a Let me Google that for you link",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "text",
+              "description": "Google that for you",
+              "type": 3,
+              "required": "true"
+          }
+      ]
   },
   {
-    "name": "prune",
-    "description": "Prune up to 99 messages.",
-    options: [
-      {
-        "name": "amount",
-        "type": 4,
-        "description": "Number of messages to prune",
-        "required": "true"
-      }
-    ]
+      "name": "info",
+      "description": "Get informations about the bot",
+      "dm_permission": "false"
   },
   {
-    "name": "user",
-    "description": "Provides information about the user."
+      "name": "kick",
+      "description": "Select a member and kick them.",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "target",
+              "description": "the member to kick",
+              "type": 6,
+              "required": "true"
+          },
+          {
+              "name": "reason",
+              "description": "Reason of the kick",
+              "type": 3,
+              "required": "false"
+          }
+      ]
   },
   {
-    "name": "ban",
-    "description": "Bans an user",
-    options: [
-      {
-        "name": "target",
-        "type": 6,
-        "description": "Target to ban",
-        "required": "true"
-      },
-      {
-        "name": "reason",
-        "type": 3,
-        "description": "Reason of the ban",
-        "required": "false"
-      }
-    ]
+      "name": "ping",
+      "description": "Replies with the Bot Latency",
+      "dm_permission": "false"
   },
   {
-    "name": "timeout",
-    "description": "Select a member and timeout them",
-    options: [
-      {
-        "name": "target",
-        "type": 6,
-        "description": "The member to timeout",
-        "required": "true"
-      },
-      {
-        "name": "time",
-        "type": 4,
-        "description": "Timeout hours",
-        "required": "true"
-      },
-      {
-        "name": "reason",
-        "type": 3,
-        "description": "Reason of the timeout",
-        "required": "false"
-      }
-    ]
+      "name": "prune",
+      "description": "Prune up to 199 messages",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "amount",
+              "description": "Amount of messages to prune.",
+              "type": 4,
+              "required": "true"
+          }
+      ]
   },
   {
-    "name": "actions",
-    "description": "Actions for users moderation",
-    options: [
-      {
-        "name": "target",
-        "type": 6,
-        "description": "Target of the moderation",
-        "required": "true"
-      },
-      {
-        "name": "reason",
-        "type": 3,
-        "description": "Reason of the moderation",
-        "required": "true"
-      },
-      {
-        "name": "time",
-        "type": 4,
-        "description": "Time (for mutes)",
-        "required": "false"
-      }
-    ]
+      "name": "reload",
+      "description": "Reloads a command.",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "command",
+              "description": "The command to reload",
+              "type": 3,
+              "required": "true"
+          }
+      ]
   },
   {
-    "name": "reload",
-    "description": "Reloads a command.",
-    options: [
-      {
-        "name": "command",
-        "type": 3,
-        "description": "The command to reload.",
-        "required": "true"
-      }
-    ]
+      "name": "server",
+      "description": "Display info about this server.",
+      "dm_permission": "false"
   },
   {
-    "name": "info",
-    "description": "Get informations about the bot"
+      "name": "timeout",
+      "description": "Select a member and timeout them",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "target",
+              "description": "the member to timeout",
+              "type": 6,
+              "required": "true"
+          },
+          {
+              "name": "time",
+              "description": "timeout time",
+              "type": 3,
+              "required": "true"
+          },
+          {
+              "name": "reason",
+              "description": "reason of the timeout",
+              "type": 3,
+              "required": "false"
+          }
+      ]
+  },
+  {
+      "name": "user",
+      "description": "Provides informations about the user.",
+      "dm_permission": "false",
+      options: [
+          {
+              "name": "target",
+              "description": "Choose the user to get informations about",
+              "type": 6,
+              "required": "true"
+          }
+      ]
   }
 ];
 console.log(commands);
