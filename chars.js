@@ -10,4 +10,4 @@ module.exports = {
 	6: '6️⃣', 7: '7️⃣', 8: '8️⃣', 9: '9️⃣',
 	10: '🔟', '#': '#️⃣', '*': '*️⃣',
 	'!': '❗', '?': '❓', 'usf': '<:USF:1109515556018737252>', 'staff': '<:staff:1124635405782884364>', 'mod': '<:mod:1124637034368217170>'
-}
+} //USF, STAFF and MOD are emojis from the official USF Development Discord
