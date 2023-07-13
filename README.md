@@ -33,7 +33,7 @@ If you need support, you can join our Discord Server https://dsc.gg/usfteam or s
 We deserve the right to block you or/and your server from using our Bot and to report you to Discord or compentent authorities. We only allow you to appeal through the [support mail](https://dsc.gg/usfteam) and if you didn't break the Terms of Service and we are not obliged to provide evidence for your punishment.
 
 ## Limitation of Liability
-We are not responsible for a wrong use of our bot and we deserve the right to remove access to any users when we feel it appropriate.
+We are not responsible for a wrong use of our bot and we deserve the right to remove access to any users/servers when we feel it appropriate.
 
 ## You are not allowed to...
 1. use the bot with other intents than what it was made for.
