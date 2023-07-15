@@ -21,6 +21,8 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 `/timeout` timeout an user | Required Permission: **ModerateMembers**
 
+`/poll` creates a poll in the server, max 5 options ! Required Permission: **Administrator**
+
 `/modal` (COMING SOON) sends a text from a modal response 
 
 
