@@ -1,6 +1,8 @@
 # USF BOT
 The USF Bot is a moderation and utility bot created by the USF Team with the scope of making servers easier to moderate with features needed for that.
 
+Please note: We do NOT support self hosting and we won't reply to any questions regarding that.
+
 ## Commands:
 
 `/server` Get informations about the server where the command was ran in
@@ -21,9 +23,9 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 `/timeout` timeout an user | Required Permission: **ModerateMembers**
 
-`/poll` creates a poll in the server, max 5 options ! Required Permission: **Administrator**
+`/poll` creates a poll in the server, max 5 options | Required Permission: **Administrator**
 
-`/modal` (COMING SOON) sends a text from a modal response 
+`/embed` Creates an embed with what you typed in the command options | Required Permission: **Administrator**
 
 
 ⚠️ You can read more about bots we make in our website! **https://usfteam.pages.dev/**
