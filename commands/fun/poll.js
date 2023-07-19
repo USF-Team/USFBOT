@@ -14,68 +14,52 @@ module.exports = {
     async execute(interaction) {
         if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             const message = interaction.options.getString('message');
-        	const one = interaction.options.getString('option1');
-        	const two = interaction.options.getString('option2');
-        	const three = interaction.options.getString('option3');
-            if (three) {
-                const four = interaction.options.getString('option4');
-                if (four) {
-                    const five = interaction.options.getString('option5');
-                    if (five) {
-                        const embedfive = new EmbedBuilder()
-                        	.setTitle(`${interaction.guild.name} Poll`)
-            				.setDescription(`**${message}**\n1️⃣ ${one}\n2️⃣ ${two}\n3️⃣ ${three}\n4️⃣ ${four}\n5️⃣ ${five}`)
-            				.setThumbnail(`${interaction.guild.iconURL({size:2048})}`)
-							.setColor(0x0000FF)
-            				.setFooter({text: `Requested by ${interaction.user.username}`})
-                    		.setTimestamp();
-                		const fivereply = await interaction.reply({embeds: [embedfive], fetchReply: true});
-                		await fivereply.react('1️⃣');
-                		await fivereply.react('2️⃣');
-                    	await fivereply.react('3️⃣');
-                        await fivereply.react('4️⃣');
-                        await fivereply.react('5️⃣');
+            const option1 = interaction.options.getString('option1');
+            const option2 = interaction.options.getString('option2');
+            const option3 = interaction.options.getString('option3');
+            const option4 = interaction.options.getString('option4');
+            const option5 = interaction.options.getString('option5');
+            const poll = new EmbedBuilder()
+            	.setColor(0xff0000)
+            	.setTitle(`${message}`)
+            	.setThumbnail(`${interaction.guild.iconURL({size:2048})}`)
+            	.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({size:32})}`})
+            	.setTimestamp();
+            if (option3) {
+                if (option4) {
+                    if (option5) {
+                        poll.setDescription(`1️⃣ ${option1}\n2️⃣ ${option2}\n3️⃣ ${option3}\n4️⃣ ${option4}\n5️⃣ ${option5}`);
                     } else {
-                        const embedfour = new EmbedBuilder()
-            				.setTitle(`${interaction.guild.name} Poll`)
-            				.setDescription(`${message}\n1️⃣ ${one}\n2️⃣ ${two}\n3️⃣ ${three}\n4️⃣ ${four}`)
-            				.setThumbnail(`${interaction.guild.iconURL({size:2048})}`)
-							.setColor(0x0000FF)
-            				.setFooter({text: `Requested by ${interaction.user.username}`})
-                    		.setTimestamp();
-                		const fourreply = await interaction.reply({embeds: [embedfour], fetchReply: true});
-                		await fourreply.react('1️⃣');
-                		await fourreply.react('2️⃣');
-                    	await fourreply.react('3️⃣');
-                        await fourreply.react('4️⃣');
+                        poll.setDescription(`1️⃣ ${option1}\n2️⃣ ${option2}\n3️⃣ ${option3}\n4️⃣ ${option4}`);
                     }
                 } else {
-                    const embedthree = new EmbedBuilder()
-            			.setTitle(`${interaction.guild.name} Poll`)
-            			.setDescription(`${message}\n1️⃣ ${one}\n2️⃣ ${two}\n3️⃣ ${three}`)
-            			.setThumbnail(`${interaction.guild.iconURL({size:2048})}`)
-						.setColor(0x0000FF)
-            			.setFooter({text: `Requested by ${interaction.user.username}`})
-                    	.setTimestamp();
-                	const threereply = await interaction.reply({embeds: [embedthree], fetchReply: true});
-                	await threereply.react('1️⃣');
-                	await threereply.react('2️⃣');
-                    await threereply.react('3️⃣');
+                    poll.setDescription(`1️⃣ ${option1}\n2️⃣ ${option2}\n3️⃣ ${option3}`);
                 }
             } else {
-                const embedtwo = new EmbedBuilder()
-            		.setTitle(`${interaction.guild.name} Poll`)
-            		.setDescription(`${message}\n1️⃣ ${one}\n2️⃣ ${two}`)
-            		.setThumbnail(`${interaction.guild.iconURL({size:2048})}`)
-					.setColor(0x0000FF)
-            		.setFooter({text: `Requested by ${interaction.user.username}`})
-                	.setTimestamp();
-                const replytwo = await interaction.reply({embeds: [embedtwo], fetchReply: true});
-                await replytwo.react('1️⃣');
-                await replytwo.react('2️⃣');
+                poll.setDescription(`1️⃣ ${option1}\n2️⃣ ${option2}`);
+            }
+            const wait = require('node:timers/promises').setTimeout;
+            await interaction.deferReply({ephemeral: true});
+            await wait(2000);
+            interaction.editReply({content: 'Pool sent!', ephemeral: true});
+            const reply = await interaction.channel.send({embeds: [poll], fetchReply: true});
+            reply.react('1️⃣');
+            reply.react('2️⃣');
+            if (option3) {
+                reply.react('3️⃣');
+                if (option4) {
+                    reply.react('4️⃣');
+                    if (option5) {
+                        reply.react('5️⃣');
+                    }
+                }
             }
         } else {
-            interaction.reply({content: 'You don\'t have the required permission to run this command.', ephemeral: true});
+            const noperm = new EmbedBuilder()
+            	.setColor(0xff0000)
+            	.setTitle('Missing permission')
+            	.setDescription('I\'m sorry, you don\'t have the required permission to run this command (Administrator)');
+            interaction.reply({embeds:[noperm]});
         }
     },
 };
