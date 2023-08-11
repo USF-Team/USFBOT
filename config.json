@@ -1,5 +1,9 @@
 {
-  "token": "TOKENHERE",
-  "clientId": "BOTIDHERE",
-  "guildId": "MAINGUILDIDHERE",
+	"token": "BOT-TOKEN-HERE",
+    "clientId": "CLIENTID",
+    "guildId": "MAIN-GUILDID",
+    "version": "BOTVERSION",
+    "usf" : [""],
+    "bannedUsers": [""],
+    "bannedGuilds": [""]
 }
