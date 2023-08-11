@@ -48,7 +48,7 @@ module.exports = {
                 	.setDescription(`**Explaination:** ${description}`)
                 	.setFooter({text: `Suggestion sent by ${interaction.user.username} | ${interaction.user.id}`, iconURL: `${interaction.user.displayAvatarURL({})}`});
                 await confirmation.update({ephemeral: true, embeds: [worked], components: []});
-                const channel = interaction.client.channels.cache.get('1134463117540200518');
+                const channel = interaction.client.channels.cache.get(/*channelID*/);
                 channel.send({embeds: [sugg]});
             }
         } catch(e) {
