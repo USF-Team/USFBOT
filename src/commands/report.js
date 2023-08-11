@@ -46,7 +46,7 @@ module.exports = {
                 	.setTitle('Report successfully sent!')
                 	.setDescription('✅ Your report has been successfully deliveried to USF Developers.\nWe won\'t contact you about your report unless you open a Report Ticket in our Discord Server.');
                 await confirmation.update({ephemeral: true, embeds: [worked], components: []});
-                const channel = interaction.client.channels.cache.get('1134463083826380850');
+                const channel = interaction.client.channels.cache.get(/*channelID*/);
                 channel.send({embeds: [report]});
             }
         } catch(e) {
