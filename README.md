@@ -70,7 +70,7 @@ DISCLAIMER: We do not knowingly collect data of children under 16. Under article
 
 ## What data do we gather?
 - Guild and User IDs when they invite the bot and gets reported to us to blacklist them.
-- Reports sent to us
+- Reports and suggestions sent to us
 
 ## Why do we need this data?
 We need this data to make sure that the USF Bot is not used for other scopes which are against the Discord ToS, Community guidelines or even law.
