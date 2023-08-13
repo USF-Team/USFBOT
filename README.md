@@ -5,28 +5,39 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 ## Commands:
 
-`/server` Get informations about the server where the command was ran in
-
-`/info` Gives you informations about the USF Bot and Contacts
-
-`/user` Get informations about an user (Username, ID, avatar and when they joined discord
-
-`/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: **ModerateMembers**
+`/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: **Timeout = ModerateMembers, kick = KickMembers, Ban = BanMembers**
 
 `/avatar` Get the avatar of an user in an embed
 
 `/ban` ban an user from the server | Required Permission: **BanMembers**
 
+`/embed` Creates an embed with what you typed in the command options | Required Permission: **Administrator**
+
+`/google` Generates a Let me Google that for you link
+
+`/info` Gives you informations about the USF Bot and Contacts
+
 `/kick` kick an user from the server | Required Permission: **KickMembers**
 
-`/reload` reloads a command | Required Permission: **Available only to USF Developers**
+`/mcstatus` Pings a Minecraft server (Java, Bedrock or Education edition) and gets the status and details about it
 
-`/timeout` timeout an user | Required Permission: **ModerateMembers**
+`/meme` Generates a random meme
+
+`/ping` Get the ping of the bot
 
 `/poll` creates a poll in the server, max 5 options | Required Permission: **Administrator**
 
-`/embed` Creates an embed with what you typed in the command options | Required Permission: **Administrator**
+`/prune` Prune messages from a channel, max 200 | Required Permission: **ManageMessages**
 
+`/report` Report an user or something wrong to our Developers
+
+`/server` Get informations about the server where the command was ran in
+
+`/suggestion` Suggest us features or changes for the Bot
+
+`/timeout` timeout an user | Required Permission: **ModerateMembers**
+
+`/user` Get informations about an user (Username, ID, avatar and when they joined discord
 
 ⚠️ You can read more about bots we make in our website! **https://usfteam.pages.dev/**
 If you need support, you can join our Discord Server https://dsc.gg/usfteam or send a mail to usfdiscordteam@gmail.com
