@@ -15,9 +15,13 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 `/google` Generates a Let me Google that for you link
 
+`/help` Creates an embed with bot commmands, permissions needed and a quick description of them
+
 `/info` Gives you informations about the USF Bot and Contacts
 
 `/kick` kick an user from the server | Required Permission: **KickMembers**
+
+`/lock` Locks a channel using a reason | Required Permission: **ManageChannels**
 
 `/mcstatus` Pings a Minecraft server (Java, Bedrock or Education edition) and gets the status and details about it
 
@@ -37,6 +41,8 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 `/timeout` timeout an user | Required Permission: **ModerateMembers**
 
+`/unlock` Unlocks a channel with a reason | Required Permission **ManageChannels**
+
 `/user` Get informations about an user (Username, ID, avatar and when they joined discord
 
 ⚠️ You can read more about bots we make in our website! **https://usfteam.pages.dev/**
@@ -45,7 +51,7 @@ If you need support, you can join our Discord Server https://dsc.gg/usfteam or s
 # Terms of Service
 
 ## What happens if I break the ToS?
-We deserve the right to block you or/and your server from using our Bot and to report you to Discord or compentent authorities. We only allow you to appeal through the [support mail](https://dsc.gg/usfteam) and if you didn't break the Terms of Service and we are not obliged to provide evidence for your punishment.
+We deserve the right to block you or/and your server from using our Bot and to report you to Discord or compentent authorities. We only allow you to appeal through the [support mail](mailto:usfdiscordteam@gmail.com) and if you didn't break the Terms of Service and we are not obliged to provide evidence for your punishment.
 
 ## Limitation of Liability
 We are not responsible for a wrong use of our bot and we deserve the right to remove access to any users/servers when we feel it appropriate.
