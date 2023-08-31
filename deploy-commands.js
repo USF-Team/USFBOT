@@ -148,7 +148,7 @@ const commands = [
     {
         "name": "google",
         "description": "Generate a Let me Google that for you link",
-        "dm_permission": "true",
+        "dm_permission": "false",
         options: [
             {
                 "name": "text",
@@ -157,6 +157,11 @@ const commands = [
                 "required": "true"
             }
         ]
+    },
+    {
+        "name": "help",
+        "description": "Get commands and info about the bot",
+        "dm_permission": "true"
     },
     {
         "name": "info",
@@ -177,6 +182,25 @@ const commands = [
             {
                 "name": "reason",
                 "description": "Kick reason",
+                "type": 3,
+                "required": "false"
+            }
+        ]
+    },
+    {
+        "name": "lock",
+        "description": "Locks a channel",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "channel",
+                "description": "Channel to lock",
+                "type": 7,
+                "required": "false"
+            },
+            {
+                "name": "reason",
+                "description": "Reason of the lock",
                 "type": 3,
                 "required": "false"
             }
@@ -376,9 +400,28 @@ const commands = [
         ]
     },
     {
+        "name": "unlock",
+        "description": "Unlocks a channel",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "channel",
+                "description": "Channel to unlock",
+                "type": 7,
+                "required": "false"
+            },
+            {
+                "name": "reason",
+                "description": "Reason of the unlock",
+                "type": 3,
+                "required": "false"
+            }
+        ]
+    },
+    {
         "name": "user",
         "description": "Get informations about an user",
-        "dm_permission": "true",
+        "dm_permission": "false",
         options: [
             {
                 "name": "target",
@@ -394,7 +437,7 @@ const commandsPath = path.join(__dirname, 'src');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 //
 for (const file of commandFiles) {
-	const command = require(`./commands/fun/${file}`);
+	const command = require(`./src/commands/${file}`);
 	commands.push(command.data.toJSON());
 }
 const rest = new REST({ version: '10' }).setToken(token);
