@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { ActivityType, Client, Collection, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
-const { token, bannedUsers, bannedGuilds } = require('./config.json');
+const { token, bannedUsers, bannedGuilds, discord, joinCh, leaveCh } = require('./config.json');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages] });
 //
 client.cooldowns = new Collection();
@@ -31,14 +31,14 @@ client.on(Events.InteractionCreate, async interaction => {
     if (bannedUsers.includes(interaction.user.id)) {
         const userNotAllowed = new EmbedBuilder()
         	.setTitle('You are not allowed to use this Bot!')
-        	.setDescription(`Hello ${interaction.user},\nWe are sorry but you are not allowed to use the USF Bot.\n\nThis usually happens when you break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error, you can appeal in our [Discord Server](https://discord.gg/e4JEfsjxNr).`);
+        	.setDescription(`Hello ${interaction.user},\nWe are sorry but you are not allowed to use the USF Bot.\n\nThis usually happens when you break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error, you can appeal in our [Discord Server](${discord}).`);
         interaction.reply({embeds: [userNotAllowed], ephemeral: true}); return;
     }
     if (interaction.guild) {
         if (bannedGuilds.includes(interaction.guild.id)) {
             const guildNotAllowed = new EmbedBuilder()
             	.setTitle('This guils is allowed to use this Bot!')
-            	.setDescription(`Hello ${interaction.user},\nWe are sorry but this guild is not allowed to use the USF Bot.\n\nThis usually happens when guild members break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error and you are the guild owner, you can appeal in our [Discord Server](https://discord.gg/e4JEfsjxNr).`);
+            	.setDescription(`Hello ${interaction.user},\nWe are sorry but this guild is not allowed to use the USF Bot.\n\nThis usually happens when guild members break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error and you are the guild owner, you can appeal in our [Discord Server](${discord}).`);
             interaction.reply({embeds: [guildNotAllowed], ephemeral: true}); return;
         }
     }
@@ -73,7 +73,7 @@ client.on(Events.InteractionCreate, async interaction => {
         console.error(error);
         const erbed = new EmbedBuilder()
         	.setTitle('We\'re sorry, an error occurred!')
-        	.setDescription('Please wait a few seconds and if the error persists, please contact the Development Team in our [Discord Server](https://dsc.gg/usfteam)');
+        	.setDescription(`Please wait a few seconds and if the error persists, please contact the Development Team in our [Discord Server](${discord})`);
         if (interaction.replied) {
             await interaction.editReply({ embeds: [erbed], ephemeral: true });
         } else {
@@ -82,11 +82,10 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 client.on(Events.GuildCreate, guild => {
-    const joinChannel = client.channels.cache.get(/*channelID*/);
+    const joinch = client.channels.cache.get(joinCh);
     const joinembed = new EmbedBuilder()
     	.setColor(0x00ff00)
     	.setTitle('Joined a new Guild')
-    	.setThumbnail(`${guild.iconURL({ size: 2048 }) }`)
     	.addFields(
       		{ name: 'Server name', value: `${guild.name}` },
       		{ name: '\u200B', value: '\u200B' },
@@ -95,18 +94,20 @@ client.on(Events.GuildCreate, guild => {
       		{ name: 'GuildsCount', value: `${client.guilds.cache.size}`, inline: true },
     	)
     	.setTimestamp();
-    joinChannel.send({embeds:[joinembed]});
-    if (bannedGuilds.includes(interaction.guild.id)) {
+    if (guild.icon) {
+        joinembed.setThumbnail(`${guild.iconURL({ size: 2048 }) }`);
+    }
+    joinch.send({embeds:[joinembed]});
+    if (bannedGuilds.includes(guild.id)) {
         guild.leave();
-        joinChannel.send('This Guild is blacklisted. The Bot left the guild.');
+        joinch.send('This Guild is blacklisted. The Bot left the guild.');
     }
 });
 client.on(Events.GuildDelete, guild => {
-    const leaveChannel = client.channels.cache.get(/*channelID*/);
+    const leavech = client.channels.cache.get(leaveCh);
     const leaveEmbed = new EmbedBuilder()
     	.setColor(0xff0000)
     	.setTitle('Left a Guild')
-    	.setThumbnail(`${guild.iconURL({ size: 2048 }) }`)
     	.addFields(
       		{ name: 'Server Name', value: `${guild.name}`},
       		{ name: '\u200B', value: '\u200B' },
@@ -115,6 +116,11 @@ client.on(Events.GuildDelete, guild => {
       		{ name: 'GuildsCount', value: `${client.guilds.cache.size}`, inline: true },
     	)
     	.setTimestamp();
-    leaveChannel.send({ embeds: [leaveEmbed] });
+    if (guild.icon) {
+        leaveEmbed.setThumbnail(`${guild.iconURL({ size: 2048 }) }`);
+    }
+    leavech.send({ embeds: [leaveEmbed] });
 });
+process.on('unhandledRejection', console.error)
+process.on('uncaughtException', console.error)
 client.login(token);
