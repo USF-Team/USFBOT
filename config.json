@@ -1,9 +1,14 @@
 {
-    "token": "BOT-TOKEN-HERE",
-    "clientId": "CLIENTID",
-    "guildId": "MAIN-GUILDID",
-    "version": "BOTVERSION",
-    "usf" : [""],
-    "bannedUsers": [""],
-    "bannedGuilds": [""]
+	"token": "BOTTOKENHERE",
+    "clientId": "BOTID",
+    "guildId": "MAINGUILDID",
+    "version": "VERSION.",
+    "usf" : ["USFMEMBERSID"],
+    "bannedUsers": ["BANNEDUSERID"],
+    "bannedGuilds": ["BANNEDSERVERID"],
+    "discord": "DISCORDINVITE",
+    "joinCh": "BOTJOINCHANNEL",
+    "leaveCh": "BOTLEAVECHANNEL",
+    "reportCh": "BOTREPORTCHANNEL",
+    "suggestCh": "BOTSUGGESTCHANNEL"
 }
