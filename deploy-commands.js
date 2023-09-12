@@ -44,7 +44,7 @@ const commands = [
     },
     {
         "name": "ban",
-        "description": "Bans an user",
+        "description": "Ban an user",
         "dm_permission": "false",
         options: [
             {
@@ -63,7 +63,7 @@ const commands = [
     },
     {
         "name": "embed",
-        "description": "Creates an embed",
+        "description": "Create an embed with text and settings decided by you",
         "dm_permission": "false",
         options: [
             {
@@ -170,7 +170,7 @@ const commands = [
     },
     {
         "name": "kick",
-        "description": "Kicks a member",
+        "description": "Kick a member",
         "dm_permission": "false",
         options: [
             {
@@ -189,7 +189,7 @@ const commands = [
     },
     {
         "name": "lock",
-        "description": "Locks a channel",
+        "description": "Lock a channel and post an embed with the reason",
         "dm_permission": "false",
         options: [
             {
@@ -208,7 +208,7 @@ const commands = [
     },
     {
         "name": "mcstatus",
-        "description": "Get the status of a Minecraft Server",
+        "description": "Get the status of a Java, Bedrock or Education Edition Minecraft Server",
         "dm_permission": "false",
         options: [
             {
@@ -238,12 +238,12 @@ const commands = [
     },
     {
         "name": "ping",
-        "description": "Returns the ping of the bot",
+        "description": "Return the ping of the bot",
         "dm_permission": "true"
     },
     {
         "name": "poll",
-        "description": "Create a poll in the server",
+        "description": "Create a poll in the server, max 5 options",
         "dm_permission": "false",
         options: [
             {
@@ -401,7 +401,7 @@ const commands = [
     },
     {
         "name": "unlock",
-        "description": "Unlocks a channel",
+        "description": "Unlock a channel and post an embed with the reason",
         "dm_permission": "false",
         options: [
             {
