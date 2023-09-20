@@ -1,86 +1,49 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const mcs = require('node-mcstatus');
+const { getStatus } = require("mc-server-status");
 const { discord } = require('../../config.json');
 //
 module.exports = {
     data: new SlashCommandBuilder()
     	.setName('mcstatus').setDescription('Get the status of a Minecraft Server')
     	.addStringOption(option=>option.setName('address').setDescription('IP Address of the Minecraft server (without port)').setRequired(true))
-    	.addStringOption(option=>option.setName('port').setDescription('Port of the Minecraft server').setRequired(true))
-    	.addBooleanOption(option=>option.setName('java').setDescription('Is the server Java? (no=bedrock)').setRequired(true))
     	.setDMPermission(false),
     async execute(interaction) {
         await interaction.deferReply();
         const wait = require('node:timers/promises').setTimeout;
         await wait(3000);
         const host = interaction.options.getString('address');
-        const port = interaction.options.getString('port');
-        const options = {query: true};
-        const java = interaction.options.getBoolean('java');
-        if (java===true) {
-            mcs.statusJava(host, port, options)
-            	.then((result) => {
-                	let status = '';
-                	if (!result.players.max) {
-                        status='OFFLINE';
-                    } else {
-                        status = 'ONLINE';
-                    }
-                	const stabed = new EmbedBuilder()
-                		.setTitle(`${host.toLowerCase()}:${port}`)
-                		.addFields(
-                        	{name: '__IP & Port__', value: `${host}:${port}`},
-                        	{name: '__Status__', value: `${status}`, inline: true},
-                        	{name: '__Version__', value: `${result.version.name_clean}`, inline: true},
-                        	{name: '__Players__', value: `${result.players.online}/${result.players.max}`, inline: true},
-                        	{name: '__Motd__', value: `${result.motd.clean}`},
-                    	)
-                		.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({size:2048})}`});
-                	if (status==='ONLINE') {
-                    	stabed.setColor(0x00ff00);
-                	} else {
-                    	stabed.setColor(0xff0000);
-                	}
-                	interaction.editReply({embeds: [stabed]});
-            	})
-            	.catch((error) => {
-                	console.error(error);
-                	const erbed = new EmbedBuilder()
-                    	.setTitle('We\'re sorry, an error occurred!')
-                    	.setDescription(`Please wait a few seconds and if the error persists, please contact the Development Team in our [Discord Server](${discord})`);
-                	interaction.channel.send('Common reasons: \n- Server Offline\n- IP does not exist\n- Wrong Port');
-                	interaction.editReply({ embeds: [erbed], ephemeral: true });
-            	});
-            
+        const status = await getStatus(`${host}`);
+        const sembed = new EmbedBuilder()
+        	.setTitle(`${host.toLowerCase()}`)
+        	.setDescription(`${status.description}`)
+        	.addFields(
+                { name: 'Players', value: `${status.players.online}/${status.players.max}`, inline: true},
+                { name: 'Version', value: `${status.version.name}`, inline: true},
+                { name: 'Ping', value: `${status.ping}`},
+            )
+        	.setFooter({ text: `Requested by ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({size:32})}`})
+        	.setTimestamp();
+        let rep = await interaction.editReply({ embeds: [sembed] });
+        if (status.players.max===0) {
+            sembed.setColor(0xff0000);
+            sembed.addFields(
+                {name: 'Status', value: 'OFFLINE'},
+            );
+            rep.edit({embeds: [sembed]});
+            if (status.description.text) {
+                sembed.setDescription(`${status.description.text}`);
+                rep.edit({embeds: [sembed]});
+            }
         } else {
-            mcs.statusBedrock(host, port)
-            	.then((result) =>{
-                	let status = 'ONLINE';
-                	if (result.players.max===0) {status='OFFLINE'};
-                	const stabed1 = new EmbedBuilder()
-                		.setTitle(`${host.toLowerCase()}:${port}`)
-                		.addFields(
-                        	{name: '__IP & Port__', value: `${host}:${port}`},
-                        	{name: '__Status__', value: `${status}`, inline: true},
-                        	{name: '__Version__', value: `${result.version.name_clean}`, inline: true},
-                        	{name: '__Players__', value: `${result.players.online}/${result.players.max}`, inline: true},
-                        	{name: '__Motd__', value: `${result.motd.clean}`},
-                    	)
-                		.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({size:2048})}`});
-                	if (status==='ONLINE') {
-                    	stabed1.setColor(0x00ff00);
-                	} else {
-                    	stabed1.setColor(0xff0000);
-                	}
-                	interaction.editReply({embeds: [stabed1]});
-            	})
-            	.catch((error) => {
-                	console.error(error);
-                	const erbed1 = new EmbedBuilder()
-                    	.setTitle('We\'re sorry, an error occurred!')
-                    	.setDescription(`Please wait a few seconds and if the error persists, please contact the Development Team in our [Discord Server](${discord})`);
-                	interaction.editReply({ embeds: [erbed1], ephemeral: true });
-            	});
+            sembed.setColor(0x00ff00);
+            sembed.addFields(
+                {name: 'Status', value: 'ONLINE'},
+            );
+            rep.edit({ embeds: [sembed] });
+            if (status.description.text) {
+                sembed.setDescription(`${status.description.text}`);
+                rep.edit({embeds: [sembed]});
+            }
         }
-    }
-}
+    },
+};
