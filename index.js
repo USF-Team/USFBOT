@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ActivityType, Client, Collection, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
 const { token, bannedUsers, bannedGuilds, discord, joinCh, leaveCh } = require('./config.json');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages], presence: {status: 'ONLINE', activities: [{type: ActivityType.Watching, name: 'USF Testings'}]} });
 //
 client.cooldowns = new Collection();
 client.commands = new Collection();
@@ -25,7 +25,6 @@ for (const folder of commandFolders) {
 //
 client.once(Events.ClientReady, () => {
     console.log(`Ready! Logged in as ${client.user.tag}!`);
-    client.user.setActivity('/info', { type: ActivityType.Playing });
 });
 client.on(Events.InteractionCreate, async interaction => {
     if (bannedUsers.includes(interaction.user.id)) {
