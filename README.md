@@ -21,6 +21,8 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 `/kick` kick an user from the server | Required Permission: **KickMembers**
 
+`/leave` leaves a guild | Required Permission: **USFTEAM**
+
 `/lock` Locks a channel using a reason | Required Permission: **ManageChannels**
 
 `/mcstatus` Pings a Minecraft server (Java, Bedrock or Education edition) and gets the status and details about it
@@ -34,6 +36,8 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 `/prune` Prune messages from a channel, max 200 | Required Permission: **ManageMessages**
 
 `/report` Report an user or something wrong to our Developers
+
+`/say` says a message in the chat through the bot | Required Permission: **Administator**
 
 `/server` Get informations about the server where the command was ran in
 
