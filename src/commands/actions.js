@@ -9,9 +9,9 @@ module.exports = {
     	.addStringOption(option=>option.setName('duration').setDescription('duration for mutes only'))
     	.setDMPermission(false),
     async execute(interaction) {
-        /*interaction.deferReply({ephemeral: true});
+        await interaction.deferReply({ephemeral: true});
         const wait = require('node:timers/promises').setTimeout;
-        wait(2000);*/
+        await wait(2000);
         const target = interaction.options.getMember('target');
         const reason = interaction.options.getString('reason') ?? 'No reason provided';
         //
@@ -32,7 +32,7 @@ module.exports = {
         	.setEmoji('<:banhammer:992444010364936232>');
         const row = new ActionRowBuilder()
         	.addComponents(mute, kick, ban);
-        const response = await interaction.reply({ content: `Actions for the user: ${target} | Selected reason: ${reason}`, components: [row], ephemeral: true});
+        const response = await interaction.editReply({ content: `Actions for the user: ${target} | Selected reason: ${reason}`, components: [row], ephemeral: true});
         const collectorFilter = i => i.user.id === interaction.user.id;
         try {
             const confirmation = await response.awaitMessageComponent({ filter: collectorFilter, time: 60_000 });
