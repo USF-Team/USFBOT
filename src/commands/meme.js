@@ -8,7 +8,7 @@ module.exports = {
         const wait = require('node:timers/promises').setTimeout;
         await interaction.deferReply();
         await wait(2000);
-        let number = Math.floor(Math.random()*50);
+        let number = Math.floor(Math.random()*66);
         number=number/2;
         number=Math.floor(number);
         const membed = new EmbedBuilder()
@@ -66,6 +66,22 @@ module.exports = {
             case 24: membed.setImage('https://media.discordapp.net/attachments/869649231357566996/1134758062532612096/d6e08c90d49141867e92ce929343f089.png');
                 break;
             case 25: membed.setImage('https://media.discordapp.net/attachments/840362035719831563/1034030733548847124/-429cefeebd80c14a.jpg');
+                break;
+            case 26: membed.setImage('https://cdn.discordapp.com/attachments/1146515819203936317/1146515952947707964/F4ZDGKwXQAo1xyL.png?ex=653027b0&is=651db2b0&hm=6e98d3c697d15688754d14486fd56c967b6f8eac24023897ee3c75f29d8f739f&');
+                break;
+            case 27: membed.setImage('https://media.discordapp.net/attachments/869649231357566996/1151458162805846057/RDT_20230913_115003404854264940612735.jpg');
+                break;
+            case 28: membed.setImage('https://media.discordapp.net/attachments/869649231357566996/1151652663935639693/image0.png');
+                break;
+            case 29: membed.setImage('https://media.discordapp.net/attachments/222197033908436994/1151637738517450843/Screenshot_20230913_145519_GitHub.png');
+                break;
+            case 30: membed.setImage('https://imgur.com/SNCvBos');
+                break;
+            case 31: membed.setImage('https://media.discordapp.net/attachments/869649231357566996/1153697679239548998/A8pUzxkP5ToxAAAAAElFTkSuQmCC.png');
+                break;
+            case 32: membed.setImage('https://media.discordapp.net/attachments/1071747376534003732/1152446330560598026/Screenshot_2023-09-15_203158.png');
+                break;
+            case 33: membed.setImage('https://media.discordapp.net/attachments/418250622245142538/1155461314169290882/Screenshot_20230924-073608.png');
                 break;
             default: membed.setFooter({text: 'There was a problem with memes generation, please try again later.'});
         }

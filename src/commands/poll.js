@@ -14,7 +14,7 @@ module.exports = {
     async execute(interaction) {
         const wait = require('node:timers/promises').setTimeout;
         await interaction.deferReply({ephemeral: true});
-       	await wait(2000);
+       	await wait(2500);
         if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             const message = interaction.options.getString('message');
             const option1 = interaction.options.getString('option1');
@@ -41,7 +41,7 @@ module.exports = {
             } else {
                 poll.setDescription(`1️⃣ ${option1}\n2️⃣ ${option2}`);
             }
-            interaction.editReply({content: 'Pool sent!', ephemeral: true});
+            interaction.editReply({content: 'Poll sent!', ephemeral: true});
             const reply = await interaction.channel.send({embeds: [poll], fetchReply: true});
             reply.react('1️⃣');
             reply.react('2️⃣');
@@ -54,12 +54,14 @@ module.exports = {
                     }
                 }
             }
+            delete poll;
         } else {
             const noperm = new EmbedBuilder()
             	.setColor(0xff0000)
             	.setTitle('Missing permission')
             	.setDescription('I\'m sorry, you don\'t have the required permission to run this command (Administrator)');
             interaction.editReply({embeds:[noperm], ephemeral: true});
+            delete noperm;
         }
     },
 };
