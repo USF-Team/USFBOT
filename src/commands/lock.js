@@ -36,4 +36,4 @@ module.exports = {
             interaction.editReply({content: `You don't have the required permission to run this command!`, ephemeral: true});
         }
     },
-};
+};//
