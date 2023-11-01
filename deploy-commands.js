@@ -67,22 +67,10 @@ const commands = [
         "dm_permission": "false",
         options: [
             {
-                "name": "title",
-                "description": "Embed Title",
-                "type": 3,
-                "required": "true"
-            },
-            {
-                "name": "description",
-                "description": "Embed Description",
-                "type": 3,
-                "required": "true"
-            },
-            {
                 "name": "color",
                 "description": "Select the color of the embed",
                 "type": 3,
-                "required": "true",
+                "required": "false",
                 choices: [
                     {
                         "name": "Pink",
@@ -132,14 +120,8 @@ const commands = [
                 ]
             },
             {
-                "name": "footer",
-                "description": "Embed Footer Text",
-                "type": 3,
-                "required": "false"
-            },
-            {
                 "name": "footericon",
-                "description": "Should we add your avatar as footericon",
+                "description": "Should we add your avatar as footericon?",
                 "type": 5,
                 "required": "false"
             }
@@ -218,16 +200,28 @@ const commands = [
                 "required": "true"
             },
             {
-                "name": "port",
-                "description": "Port of the Minecraft server",
+                "name": "edition",
+                "description": "The edition of the server",
                 "type": 3,
-                "required": "true"
+                "required": "true",
+                choices: [
+                    {
+                        "name": "Java Edition",
+                        "type": 3,
+                        "value": "java"
+                    },
+                    {
+                        "name": "Bedrock/Education Edition",
+                        "type": 3,
+                        "value": "bedrock"
+                    }
+                ]
             },
             {
-                "name": "java",
-                "description": "Is the server Java? (no=bedrock)",
-                "type": 5,
-                "required": "true"
+                "name": "port",
+                "description": "Port of the Minecraft Server(optional)",
+                "type": 3,
+                "required": "false",
             }
         ]
     },
@@ -327,6 +321,11 @@ const commands = [
                 "required": "true"
             }
         ]
+    },
+    {
+        "name": "say",
+        "description": "Say something in chat through the bot",
+        "dm_permission": "false"
     },
     {
         "name": "server",
@@ -433,6 +432,21 @@ const commands = [
     },
 ];
 console.log(commands);
+const usfcmds = [
+    {
+        "name": "leave",
+        "description": "Leaves a Guild",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "guildid",
+                "description": "ID of the Guild",
+                "type": 3,
+                "required": "true"
+            }
+        ]
+    }
+];
 const commandsPath = path.join(__dirname, 'src');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 //
@@ -449,6 +463,19 @@ const rest = new REST({ version: '10' }).setToken(token);
 			{ body: commands },
 		);
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+	} catch (error) {
+		console.error(error);
+	}
+})();
+(async () => {
+	try {
+		console.log(`Started refreshing ${usfcmds.length} guild application (/) commands.`);
+		const data2 = await rest.put(
+			Routes.applicationGuildCommands(clientId, guildId),
+			{ body: usfcmds },
+		);
+
+		console.log(`Successfully reloaded ${data2.length} guild application (/) commands.`);
 	} catch (error) {
 		console.error(error);
 	}
