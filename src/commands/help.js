@@ -9,30 +9,8 @@ module.exports = {
         const helpEmbed = new EmbedBuilder()
         	.setColor(0x0000ff)
         	.setTitle('USF Bot Commands')
-        	.setDescription('Here you can find every commands available in the USF Bot, permissions you need to execute them and actions they do. If you have questions/problems with them, please open a support ticket in our Discord server (link in the button below).')
+        	.setDescription('Here you can find every commands available in the USF Bot, permissions you need to execute them and actions they do. If you have questions/problems with them, please open a support ticket in our Discord server (link in the button below).\n\n\n`/actions` **Timeout=ManageMembers, Kick=KickMembers, Ban=BanMembers**: Perform moderation actions to users (Timeout, Kick, Ban)\n\n`/avatar` | **No Required Permissions**:\n Get the avatar of a selected user, or your own avatar\n\n`/ban` **BanMembers**:\nBans an user from the server\n\n`/embed` **Administrator**:\nCreates an embed and posts it to a channel\n\n`/google` **No Required Permissions**:\nGenerate a Let me Google that for you link\n\n`/help` **No Required Permissions** :\nGet commands and info about the bot\n\n`/info` **No Required Permissions**:\nGet informations about the bot\n\n`/kick` **KickMembers**:\nKicks a member from the server\n\n`/lock` **ManageChannels**:\nLocks a channel and posts an embed with the reason\n\n`/mcstatus` **No Required Permissions**:\nGet the status of a Java/Bedrock/Education Edition Minecraft Server\n\n`/meme` **No Required Permissions**:\nGenerates a random meme\n\n`/ping` **No Required Permissions**:\nReturns the ping and the roundtrip latency of the bot\n\n`/poll` **Administrator**:\nCreates a poll with max 5 choices in the server\n\n`/prune` **ManageMessages**:\nPrune messages in a channel, max 200\n\n`/report` **No Required Permissions**:\nReport an user or something wrong with the bot\n\n`/say` **Administrator**:\nSay something in chat through the bot\n\n`/server` **No Required Permissions**:\nDisplays information about the server the command was run in\n\n`/suggestion` **No Required Permissions**:\nSuggests something to be added/changed in the USF BOT\n\n`/timeout` **ManageMembers**:\nTimes out an user in the server\n\n`/unlock` **ManageChannels**:\nUnlocks a channel and posts and embed with the reason\n\n`/user` **No Required Permissions**:\nGet informatons about an user')
         	.setThumbnail('https://cdn.discordapp.com/icons/1086638377534754897/1f9299b5fcc56efdba49f1caddd02550.webp?size=2048')
-        	.addFields(
-                {name: '/actions (Manage/Kick/BanMembers)', value: 'Perform moderation actions to users (Timeout, Kick, Ban) | Required Permissions: **Timeout=ManageMembers, Kick=KickMembers, Ban=BanMembers**', inline: true},
-                {name: '/avatar (No req perms)', value: 'Get the avatar of a selected user, or your own avatar | No Required Permissions', inline: true},
-                {name: '/ban (BanMembers)', value: 'Bans an user from the server | Required Permissions: **BanMembers**', inline: true},
-                {name: '/embed (Administrator)', value: 'Creates an embed and posts it to a channel | Required Permission: **Administrator**', inline: true},
-                {name: '/google (No req perms)', value: 'Generate a Let me Google that for you link | No Required Permissions', inline: true},
-                {name: '/help (No req perms)', value: 'Get commands and info about the bot | No Required Permissions', inline: true},
-                {name: '/info (No req perms)', value: 'Get informations about the bot | No Required Permissions', inline: true},
-                {name: '/kick (KickMembers)', value: 'Kicks a member from the server | Required Permission: **KickMembers**', inline: true},
-                {name: '/mcstatus (No req perms)', value: 'Get the status of a Java/Bedrock/Education Edition Minecraft Server | No Required Permissions', inline: true},
-                {name: '/lock (ManageChannels)', value: 'Locks a channel and posts an embed with the reason', inline: true},
-                {name: '/meme (No req perms)', value: 'Generates a random meme | No Required Permissions', inline: true},
-                {name: '/ping (No req perms)', value: 'Returns the ping and the roundtrip latency of the bot | No Required Permissions', inline: true},
-                {name: '/poll (Administrator)', value: 'Creates a Poll in the server | Required Permission: **Administrator**', inline: true},
-                {name: '/prune (ManageMessages)', value: 'Prune messages in a channel, max 200 | Required Permission: **ManageMessages**', inline: true},
-                {name: '/report (No req perms)', value: 'Report an user or something wrong with the bot | No Required Permissions', inline: true},
-                {name: '/server (No req perms)', value: 'Displays informations about the server | No Required Permissions', inline: true},
-                {name: '/suggestion (No req perms)', value: 'Suggests something to be added/changed in the USF BOT | No Required Permissions', inline: true},
-                {name: '/timeout (ManageMembers)', value: 'Times out an user in the server | Required Permission: **ManageMembers**', inline: true},
-                {name: '/unlock (ManageChannels)', value: 'Unlocks a channel and posts an embed with the reason', inline: true},
-                {name: '/user (No req perms)', value: 'Get informations about an user | No Required Permissions', inline: true},
-            )
         	.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({size:32})}`})
         	.setTimestamp();
         const Discord = new ButtonBuilder()
