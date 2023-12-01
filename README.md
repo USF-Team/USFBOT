@@ -83,7 +83,11 @@ DISCLAIMER: We do not knowingly collect data of children under 16. Under article
 - Reports and suggestions sent to us
 
 ## Why do we need this data?
-We need this data to make sure that the USF Bot is not used for other scopes which are against the Discord ToS, Community guidelines or even law.
+We need this data to make sure that the USF Bot is not used for other scopes which are against the Discord ToS, Community guidelines or even law and to allow our users to send us suggestions and reports regarding the bot.
+
+## How can I request to get my data deleted?
+- You can request to delete your server joinlogs if the bot left your discord server
+- You can request to delete reports and suggestions sent to us through a support Ticket in our Discord Server or mailing us to usfdiscordteam@gmail.com.
 
 ## Who do we share your data with?
 Only USF Developers have access to this data and they are not allowed to send it anywhere.
