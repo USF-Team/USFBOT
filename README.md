@@ -26,6 +26,7 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 `/lock` Locks a channel using a reason | Required Permission: **ManageChannels**
 
 `/mcstatus` Pings a Minecraft server (Java, Bedrock or Education edition) and gets the status and details about it
+⚠️ **Issues with getting Aternos and exaroton servers status (on their end)**
 
 `/meme` Generates a random meme
 
