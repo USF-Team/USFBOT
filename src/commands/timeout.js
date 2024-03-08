@@ -11,8 +11,7 @@ module.exports = {
     	.addStringOption(option=>option.setName('reason').setDescription('Reason of the timeout'))
     	.setDMPermission(false),
     async execute(interaction) {
-        await interaction.deferReply({ephemeral: true});
-        await wait(2500);
+        await interaction.deferReply({ ephemeral: true });
         const target = interaction.options.getMember('target');
         let errorcase = new EmbedBuilder()
             .setTitle('Could not Timeout the user')
@@ -25,16 +24,17 @@ module.exports = {
                 const timeoutEmbed = new EmbedBuilder()
                 	.setDescription(`${target} has been muted for ${time} | ${reason}`);
                 try {
-                    target.timeout(temp, reason);
-                } catch (erro) {
-                    console.log(erro);
+                    target.timeout(temp, `${interaction.user.username}: ${reason}`);
+                } catch (error) {
+                    console.error(error);
                     errorcase.setDescription(`An unexpected error happened while trying to run this command!\n Please try again later and if the issue persists, report the issue in our [Discord Server](${discord})`)
                     return interaction.editReply({embeds: [errorcase], ephemeral: true});
                 }
                 try {
                     target.send(`You have been timed out in **${interaction.guild.name}** for ${time} | ${reason}`);
-                } catch (err) {
-                    console.log('Could not DM User.');
+                } catch (error) {
+                    console.error(error);
+                    timeoutEmbed.setFooter({ text: `Could not DM the user`});
                 }
                 return interaction.editReply({embeds: [timeoutEmbed], ephemeral: true});
             } else {
@@ -45,6 +45,5 @@ module.exports = {
             errorcase.setDescription('You are missing the required permission to run this command: `ModerateMembers`');
             return interaction.editReply({embeds: [errorcase], ephemeral: true});
         }
-        delete errorcase;
     },
 };

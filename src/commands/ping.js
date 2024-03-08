@@ -7,7 +7,9 @@ module.exports = {
         const pong = interaction.client.ws.ping;
         const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
         const pingEmbed = new EmbedBuilder()
-        	.setDescription(`Initial response: ${pong}ms\nRoundtrip latency: ${sent.createdTimestamp - interaction.createdTimestamp}ms`);
-        interaction.editReply({ content: '', embeds: [pingEmbed] });
+            .setColor(0x00ffff)
+            .setTitle('Pong! 🏓')
+        	.setDescription(`- 🤖 **Bot Latency**: \`${pong}ms\`\n*Delay that USF takes to Respond to Discord*\n\n- <:discord:1214593450331086868> **Discord Latency**: \`${sent.createdTimestamp - interaction.createdTimestamp}ms\`\n*Delay between the bot and Discord*`);
+        return interaction.editReply({ content: '', embeds: [pingEmbed] });
     },
 };

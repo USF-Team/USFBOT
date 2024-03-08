@@ -20,12 +20,6 @@ const commands = [
                 "description": "Reason of the moderation",
                 "type": 3,
                 "required": "false"
-            },
-            {
-                "name": "duration",
-                "description": "duration for mutes only",
-                "type": 3,
-                "required": "false"
             }
         ]
     },
@@ -38,7 +32,7 @@ const commands = [
                 "name": "user",
                 "description": "the user\'s avatar to show'",
                 "type": 6,
-                "required": "true"
+                "required": "false"
             }
         ]
     },
@@ -124,12 +118,18 @@ const commands = [
                 "description": "Should we add your avatar as footericon?",
                 "type": 5,
                 "required": "false"
+            },
+            {
+                "name": "image",
+                "description": "Upload an image for the embed",
+                "type": 11,
+                "required": "false"
             }
         ]
     },
     {
         "name": "google",
-        "description": "Generate a Let me Google that for you link",
+        "description": "Generate Google and LMGTFY Links",
         "dm_permission": "false",
         options: [
             {
@@ -231,6 +231,31 @@ const commands = [
         "dm_permission": "false"
     },
     {
+        "name": "modnick",
+        "description": "Moderates an user nickname",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "user",
+                "description": "User to moderate the nickname of",
+                "type": 6,
+                "required": "true"
+            },
+            {
+                "name": "reason",
+                "description": "Moderation Reason",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "notify",
+                "description": "Should the bot notify the user via this chat?",
+                "type": 5,
+                "required": "false"
+            }
+        ]
+    },
+    {
         "name": "ping",
         "description": "Return the ping of the bot",
         "dm_permission": "true"
@@ -273,6 +298,36 @@ const commands = [
             {
                 "name": "option5",
                 "description": "Option 5",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "option6",
+                "description": "Option 6",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "option7",
+                "description": "Option 7",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "option8",
+                "description": "Option 8",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "option9",
+                "description": "Option 9",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "option10",
+                "description": "Option 10",
                 "type": 3,
                 "required": "false"
             }
@@ -331,6 +386,37 @@ const commands = [
         "name": "server",
         "description": "Display info about this server",
         "dm_permission": "false"
+    },
+    {
+        "name": "setnick",
+        "description": "Sets the nickname of an user",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "target",
+                "description": "User to change the name of",
+                "type": 6,
+                "required": "true"
+            },
+            {
+                "name": "new-nickname",
+                "description": "The nickname to set to the user",
+                "type": 3,
+                "required": "true"
+            },
+            {
+                "name": "reason",
+                "description": "Moderation Reason",
+                "type": 3,
+                "required": "false"
+            },
+            {
+                "name": "notify",
+                "description": "Should the bot notify the user via this chat?",
+                "type": 5,
+                "required": "false"
+            }
+        ]
     },
     {
         "name": "suggestion",
@@ -399,6 +485,77 @@ const commands = [
         ]
     },
     {
+        "name": "timestamp",
+        "description": "Generate your timestamp",
+        "dm_permission": "false",
+        options : [
+            {
+                "name": "type",
+                "description": "Type of the timestamp",
+                "type": 3,
+                "required": "true",
+                choices : [
+                    {"name": 'Short Time', "type": 3, "value": '1'},
+                    {"name": 'Long Time', "type": 3, "value": '2'},
+                    {"name": 'Short Date', "type": 3, "value": '3'},
+                    {"name": 'Long Date', "type": 3, "value": '4'},
+                    {"name": 'Long Date with Short Time', "type": 3, value: '5'},
+                    {"name": 'Long Date with day of the week and short time', "type": 3, "value": '6'},
+                    {"name": 'Relative', "type": 3, "value": '7'}
+                ]
+            },
+            {
+                "name": "year",
+                "description": "Year of the timestamp",
+                "type": 4,
+                "required": "true"
+            },
+            {
+                "name": "month",
+                "description": "Month of the timestamp",
+                "type": 4,
+                "required": "true"
+            },
+            {
+                "name": "day",
+                "description": "Day of the timestamp",
+                "type": 4,
+                "required": "true"
+            },
+            {
+                "name": "hour",
+                "description": "Hour of the timestamp",
+                "type": 4,
+                "required": "false"
+            },
+            {
+                "name": "minute",
+                "description": "Minute of the timestamp",
+                "type": 4,
+                "required": "false"
+            },
+        ]
+    },
+    {
+        "name": "unban",
+        "description": "Unbans an user from the server",
+        "dm_permission": "false",
+        options: [
+            {
+                "name": "target",
+                "description": "Target user of the moderation",
+                "type": 6,
+                "required": "true"
+            },
+            {
+                "name": "reason",
+                "description": "Reason of the moderation",
+                "type": 3,
+                "required": "false"
+            }
+        ]
+    },
+    {
         "name": "unlock",
         "description": "Unlock a channel and post an embed with the reason",
         "dm_permission": "false",
@@ -426,7 +583,7 @@ const commands = [
                 "name": "target",
                 "description": "User you want to view",
                 "type": 6,
-                "required": "true"
+                "required": "false"
             }
         ]
     },

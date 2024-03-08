@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('google')
-    .setDescription('Generate a Let me Google that for you link')
+    .setDescription('Generate Google and LMGTFY Links')
     .addStringOption(option=>option.setName('text').setDescription('Google that for you').setRequired(true))
     .setDMPermission(false),
   async execute(interaction) {
@@ -22,6 +22,5 @@ module.exports = {
         embed.setThumbnail(`${interaction.guild.iconURL({ size: 2048 }) }`);
     }
     interaction.reply({ embeds: [embed] });
-    delete embed;
-  }
-}
+  },
+};

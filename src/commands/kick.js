@@ -7,25 +7,32 @@ module.exports = {
     	.addStringOption(option=>option.setName('reason').setDescription('Kick reason'))
     	.setDMPermission(false),
     async execute(interaction) {
+        await interaction.deferReply({ ephemeral: true });
         if (interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) {
             const target = interaction.options.getMember('target');
             if (target.permissions.has(PermissionsBitField.Flags.KickMembers)) {
-                return interaction.reply({content: 'You don\'t have the permission to kick this user!', ephemeral: true});
+                return interaction.editReply({content: 'You don\'t have the permission to kick this user!', ephemeral: true});
+            }
+            if (!target.manageable) {
+                return interaction.editReply({content: 'The Bot doesn\'t have the permission to kick this user!', ephemeral: true});
+            }
+            if (!target.moderatable) {
+                return interaction.editReply({content: 'The Bot doesn\'t have the permission to kick this user!', ephemeral: true});
             }
             const reason = interaction.options.getString('reason') ?? 'No reason provided';
-            const kickEmbed = new EmbedBuilder()
+            var kickEmbed = new EmbedBuilder()
             	.setDescription(`${target} has been kicked | ${reason}`);
             try {
                 target.send(`You have been kicked from **${interaction.guild.name}** | ${reason}`);
-            } catch {
-                kickEmbed.setFooter({text: 'I couldn\'t DM the user, they probably have DMs disabled from server members!'});
-                console.error;
+            } catch (err) {
+                kickEmbed.setFooter({text: 'couldn\'t DM'});
+                console.log(err);
             }
-            target.kick(reason)
-            	.then(interaction.reply({embeds: [kickEmbed], ephemeral: true}))
+            target.kick(`${interaction.user.username}: ${reason}`)
+            	.then(interaction.editReply({embeds: [kickEmbed], ephemeral: true}))
             	.catch(console.error);
         } else {
-            interaction.reply({content: 'You are missing the `KickMembers` Permission', ephemeral: true});
+            interaction.editReply({content: 'You are missing the `KickMembers` Permission', ephemeral: true});
         }
     }
 }

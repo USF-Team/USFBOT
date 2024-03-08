@@ -5,9 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     	.setName('meme').setDescription('Generate a random meme').setDMPermission(false),
     async execute(interaction) {
-        const wait = require('node:timers/promises').setTimeout;
         await interaction.deferReply();
-        await wait(2000);
         let number = Math.floor(Math.random()*66);
         number=number/2;
         number=Math.floor(number);

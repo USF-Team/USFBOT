@@ -1,4 +1,4 @@
-const { ActionRowBuilder, EmbedBuilder, Events, ModalBuilder, PermissionsBitField, SlashCommandBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { ActionRowBuilder, AttachmentBuilder, EmbedBuilder, Events, ModalBuilder, PermissionsBitField, SlashCommandBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 //
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,11 +15,13 @@ module.exports = {
             {name: 'White', value: 'white'},
         ))
     	.addBooleanOption(option=>option.setName('footericon').setDescription('Should we add your avatar as footericon?'))
+        .addAttachmentOption(option=>option.setName('image').setDescription('Upload an image for the embed'))
     	.setDMPermission(false),
     async execute(interaction) {
         if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
-            let color = interaction.options.getString('color');
+            let color = interaction.options.getString('color') ?? 'black';
             const footericon = interaction.options.getBoolean('footericon');
+            const image = interaction.options.getAttachment('image');
             const modal = new ModalBuilder()
                 .setCustomId('embedResponse')
                 .setTitle('Embed Options');
@@ -36,7 +38,8 @@ module.exports = {
             const footerb = new TextInputBuilder()
                 .setCustomId('footer')
                 .setLabel('Embed Footer')
-                .setStyle(TextInputStyle.Short);
+                .setStyle(TextInputStyle.Short)
+                .setRequired(false);
             const row = new ActionRowBuilder().addComponents(titleb);
             const row1 = new ActionRowBuilder().addComponents(descriptionb);
             const row2 = new ActionRowBuilder().addComponents(footerb);
@@ -52,40 +55,35 @@ module.exports = {
                         .setTitle(`${title}`)
         	            .setDescription(`${description}`)
         	            .setTimestamp();
-                    if (color==='blue') {
-                        embed.setColor(0x0000ff);
-                    } else if (color==='red') {
-                        embed.setColor(0xff0000);
-                    } else if (color==='orange') {
-                        embed.setColor(0xff7700);
-                    } else if (color==='green') {
-                        embed.setColor(0x00ff00);
-                    } else if (color==='yellow') {
-                        embed.setColor(0xffff00);
-                    } else if (color==='purple') {
-                        embed.setColor(0xff00ff);
-                    } else if (color==='black') {
-                        embed.setColor(0x000001);
-                    } else if (color==='white') {
-                        embed.setColor(0xffffff);
-                    } else if (color==='pink') {
-                        embed.setColor(0xf887df);
-                    } else {
-                        embed.setColor(0x000001);
+                    switch (color) {
+                        case 'blue': embed.setColor(0x0000ff); break;
+                        case 'red': embed.setColor(0xff0000); break;
+                        case 'orange': embed.setColor(0xff7700); break;
+                        case 'green': embed.setColor(0x00ff00); break;
+                        case 'yellow': embed.setColor(0xffff00); break;
+                        case 'purple': embed.setColor(0xff00ff); break;
+                        case 'black': embed.setColor(0x000001); break;
+                        case 'white': embed.setColor(0xffffff); break;
+                        case 'pink': embed.setColor(0xf887df); break;
+                        default: embed.setColor(0x000001);
                     }
                     if (footer&&footericon) {
                         await embed.setFooter({text:`${footer}`, iconURL:`${interaction.user.displayAvatarURL({size:16})}`});
                     } else if (footer&&!footericon) {
                         await embed.setFooter({text: `${footer}`});
                     } else if (!footer&&footericon) {
-                        await embed.setFooter({text: 'Text', iconURL: `${interaction.user.displayAvatarURL({size:16})}`});
+                        await embed.setFooter({text: 'No Text Provided', iconURL: `${interaction.user.displayAvatarURL({size:16})}`});
                     }
-                    interaction.channel.send({embeds: [embed]});
-                    delete embed;
+                    if (image) {
+                        embed.setImage(`attachment://${image.name}`);
+                        interaction.channel.send({embeds: [embed], files: [image] });
+                        return interaction.reply({content: 'Embed Sent', ephemeral: true});
+                    }
+                    interaction.channel.send({embeds: [embed] });
                     return interaction.reply({content: 'Embed Sent', ephemeral: true});
                 })
-                .catch(err =>{
-                    console.log(err);
+                .catch(error =>{
+                    console.error(error);
                 });
         }
     },
