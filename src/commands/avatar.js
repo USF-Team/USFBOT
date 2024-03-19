@@ -3,7 +3,7 @@ const { discord } = require('../../config.json');
 //
 module.exports = {
     data: new SlashCommandBuilder()
-    	.setName('avatar').setDescription('Get the avatar of the selected user, or your own avatar.')
+    	.setName('avatar').setDescription('Get the avatar of a selected user, or your own avatar')
     	.addUserOption(option=>option.setName('user').setDescription('The user\'s avatar to show'))
     	.setDMPermission(true),
     async execute(interaction) {

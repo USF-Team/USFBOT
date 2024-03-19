@@ -1,9 +1,8 @@
 const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
-const wait = require('node:timers/promises').setTimeout;
 //
 module.exports = {
     data: new SlashCommandBuilder()
-    	.setName('unlock').setDescription('Unocks a channel')
+    	.setName('unlock').setDescription('Unlock a channel and post an embed with the reason')
     	.addChannelOption(option=>option.setName('channel').setDescription('Channel to unlock').setRequired(false))
     	.addStringOption(option=>option.setName('reason').setDescription('Reason of the unlock').setRequired(false))
     	.setDMPermission(false),

@@ -12,6 +12,7 @@ module.exports = {
     	.addStringOption(option=>option.setName('proof').setDescription('Send us proof about your report').setRequired(true))
     	.setDMPermission(false),
     async execute(interaction) {
+        await interaction.deferReply();
         const reported = interaction.options.getString('reported');
         const proof = interaction.options.getString('proof');
         const report = new EmbedBuilder()
@@ -35,7 +36,7 @@ module.exports = {
         	.setEmoji('✅');
         const row = new ActionRowBuilder()
         	.addComponents(no, yes);
-        const response = await interaction.reply({embeds: [sure], components: [row], ephemeral: true});
+        const response = await interaction.editReply({embeds: [sure], components: [row], ephemeral: true});
         const collectorFilter = i => i.user.id === interaction.user.id;
         try {
             const confirmation = await response.awaitMessageComponent({ filter: collectorFilter, time: 60_000 });

@@ -3,7 +3,7 @@ const { SlashCommandBuilder, PermissionsBitField, EmbedBuilder } = require('disc
 module.exports = {
     data: new SlashCommandBuilder()
     	.setName('poll')
-    	.setDescription('Create a poll in the server')
+    	.setDescription('Create a poll in the server, max 10 options')
     	.addStringOption(option=>option.setName('message').setDescription('Message').setRequired(true))
     	.addStringOption(option=>option.setName('option1').setDescription('Option 1').setRequired(true))
     	.addStringOption(option=>option.setName('option2').setDescription('Option 2').setRequired(true))
@@ -17,9 +17,7 @@ module.exports = {
         .addStringOption(option=>option.setName('option10').setDescription('Option 10'))
     	.setDMPermission(false),
     async execute(interaction) {
-        const wait = require('node:timers/promises').setTimeout;
         await interaction.deferReply({ephemeral: true});
-       	await wait(2500);
         if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             const message = interaction.options.getString('message');
             const option1 = interaction.options.getString('option1');

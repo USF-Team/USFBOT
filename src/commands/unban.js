@@ -1,9 +1,8 @@
 const { PermissionsBitField, SlashCommandBuilder } = require('discord.js');
-const wait = require('node:timers/promises').setTimeout;
 //
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('unban').setDescription('Unbans an user from the server')
+        .setName('unban').setDescription('Unban an user from the server')
         .addUserOption(option=>option.setName('target').setDescription('Target user of the moderation').setRequired(true))
         .addStringOption(option=>option.setName('reason').setDescription('Reason of the moderation'))
         .setDMPermission(false),

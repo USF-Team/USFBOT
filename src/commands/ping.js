@@ -2,7 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 //
 module.exports = {
     data: new SlashCommandBuilder()
-    	.setName('ping').setDescription('Returns the ping of the bot').setDMPermission(true),
+    	.setName('ping').setDescription('Return the ping of the bot').setDMPermission(true),
     async execute(interaction) {
         const pong = interaction.client.ws.ping;
         const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });

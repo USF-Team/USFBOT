@@ -15,16 +15,14 @@ module.exports = {
     	.setDMPermission(false),
     async execute(interaction) {
         await interaction.deferReply();
-        const wait = require('node:timers/promises').setTimeout;
-        await wait(3500);
-        // MC SERVER STATUS
         const host = interaction.options.getString('address');
+        if (host.includes('aternos.me')||host.includes('exaroton.me')) {
+            return interaction.editReply('https://usf.instatus.com/it-it/clpk5xl9l69900banb6k6cb9tk');
+        }
         const status = await getStatus(`${host}`);
-        // NODE MCSTATUS
         const port = interaction.options.getString('port') || '25565';
         const ver = interaction.options.getString('edition');
         const options = { query: true };
-        // RESULT EMBED & STUFF
         if (ver==='java') {
             mcs.statusJava(host, port, options)
                 .then(async (result) => {
@@ -53,13 +51,11 @@ module.exports = {
                             );
                             rep.edit({ embeds: [sembed] });
                         }
-                        delete sembed;
                     } else {
                         const soffline = new EmbedBuilder()
                             .setTitle(`${host.toLowerCase()}`)
                             .setDescription(`The Server is either offline or does not exist and we cannot get results from it`);
                         interaction.editReply({embeds: [soffline]});
-                        delete soffline;
                     }
                 }).catch((error) =>{
                     console.log(error);
@@ -93,13 +89,11 @@ module.exports = {
                             );
                             rep.edit({ embeds: [sembedb] });
                         }
-                    delete sembedb;
                     } else {
                         const sofflineb = new EmbedBuilder()
                             .setTitle(`${host.toLowerCase()}`)
                             .setDescription(`The Server is either offline or does not exist and we cannot get results from it`);
                         interaction.editReply({embeds: [sofflineb]});
-                        delete sofflineb;
                     }
                 })
                 .catch((error) => {

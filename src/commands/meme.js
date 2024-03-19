@@ -6,7 +6,7 @@ module.exports = {
     	.setName('meme').setDescription('Generate a random meme').setDMPermission(false),
     async execute(interaction) {
         await interaction.deferReply();
-        let number = Math.floor(Math.random()*66);
+        let number = Math.floor(Math.random()*0 /* max number */);
         number=number/2;
         number=Math.floor(number);
         const membed = new EmbedBuilder()
@@ -17,7 +17,7 @@ module.exports = {
             /*case number: ...
             default:...*/
         }
-        if (number===/*number*/) {
+        if (number===0 /*any number*/) {
             //additional stuff
         }
         interaction.editReply({embeds: [membed] });

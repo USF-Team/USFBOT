@@ -7,6 +7,7 @@ module.exports = {
     .addStringOption(option=>option.setName('text').setDescription('Google that for you').setRequired(true))
     .setDMPermission(false),
   async execute(interaction) {
+    await interaction.deferReply();
     const search = interaction.options.getString('text');
     let googleurl = 'https://google.com/search?q='
     let url = 'https://letmegooglethat.com/?q=';

@@ -31,14 +31,14 @@ client.on(Events.InteractionCreate, async interaction => {
         const userNotAllowed = new EmbedBuilder()
         	.setTitle('You are not allowed to use this Bot!')
         	.setDescription(`Hello ${interaction.user},\nWe are sorry but you are not allowed to use the USF Bot.\n\nThis usually happens when you break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error, you can appeal in our [Discord Server](${discord}).`);
-        interaction.reply({embeds: [userNotAllowed], ephemeral: true}); return;
+            return interaction.reply({embeds: [userNotAllowed], ephemeral: true});
     }
     if (interaction.guild) {
         if (bannedGuilds.includes(interaction.guild.id)) {
             const guildNotAllowed = new EmbedBuilder()
             	.setTitle('This guild is not allowed to use this Bot!')
             	.setDescription(`Hello ${interaction.user},\nWe are sorry but this guild is not allowed to use the USF Bot.\n\nThis usually happens when guild members break our [Terms of Service](https://github.com/USF-Team/USFBOT#terms-of-service)\nIf you believe this is an error and you are the guild owner, you can appeal in our [Discord Server](${discord}).`);
-            interaction.reply({embeds: [guildNotAllowed], ephemeral: true}); return;
+            return interaction.reply({embeds: [guildNotAllowed], ephemeral: true});
         }
     }
     //

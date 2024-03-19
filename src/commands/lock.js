@@ -2,7 +2,7 @@ const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('disc
 //
 module.exports = {
     data: new SlashCommandBuilder()
-    	.setName('lock').setDescription('Locks a channel')
+    	.setName('lock').setDescription('Lock a channel and post an embed with the reason')
     	.addChannelOption(option=>option.setName('channel').setDescription('Channel to lock').setRequired(false))
     	.addStringOption(option=>option.setName('reason').setDescription('Reason of the lock').setRequired(false))
     	.setDMPermission(false),

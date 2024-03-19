@@ -27,10 +27,12 @@ const commands = [
         "name": "avatar",
         "description": "Get the avatar of a selected user, or your own avatar",
         "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options : [
             {
                 "name": "user",
-                "description": "the user\'s avatar to show'",
+                "description": "the user's avatar to show",
                 "type": 6,
                 "required": "false"
             }
@@ -62,7 +64,7 @@ const commands = [
         options: [
             {
                 "name": "color",
-                "description": "Select the color of the embed",
+                "description": "Select the embed color",
                 "type": 3,
                 "required": "false",
                 choices: [
@@ -130,7 +132,9 @@ const commands = [
     {
         "name": "google",
         "description": "Generate Google and LMGTFY Links",
-        "dm_permission": "false",
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options: [
             {
                 "name": "text",
@@ -143,16 +147,20 @@ const commands = [
     {
         "name": "help",
         "description": "Get commands and info about the bot",
-        "dm_permission": "true"
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2]
     },
     {
         "name": "info",
         "description": "Get informations about the bot",
-        "dm_permission": "true"
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2]
     },
     {
         "name": "kick",
-        "description": "Kick a member",
+        "description": "Select and kick a member from the server",
         "dm_permission": "false",
         options: [
             {
@@ -219,7 +227,7 @@ const commands = [
             },
             {
                 "name": "port",
-                "description": "Port of the Minecraft Server(optional)",
+                "description": "Port of the Minecraft Server (optional)",
                 "type": 3,
                 "required": "false",
             }
@@ -232,7 +240,7 @@ const commands = [
     },
     {
         "name": "modnick",
-        "description": "Moderates an user nickname",
+        "description": "Moderate an user nickname",
         "dm_permission": "false",
         options: [
             {
@@ -258,16 +266,18 @@ const commands = [
     {
         "name": "ping",
         "description": "Return the ping of the bot",
-        "dm_permission": "true"
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2]
     },
     {
         "name": "poll",
-        "description": "Create a poll in the server, max 5 options",
+        "description": "Create a poll in the server, max 10 options",
         "dm_permission": "false",
         options: [
             {
                 "name": "message",
-                "description": "Message",
+                "description": "Poll Message",
                 "type": 3,
                 "required": "true"
             },
@@ -350,6 +360,8 @@ const commands = [
         "name": "report",
         "description": "Report an user or something wrong with the bot",
         "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options: [
             {
                 "name": "reported",
@@ -372,8 +384,14 @@ const commands = [
             {
                 "name": "proof",
                 "description": "Send us proof about your report",
+                "type": 11,
+                "required": "false"
+            },
+            {
+                "name": "other-info",
+                "description": "Other informations about your report",
                 "type": 3,
-                "required": "true"
+                "required": "false"
             }
         ]
     },
@@ -389,7 +407,7 @@ const commands = [
     },
     {
         "name": "setnick",
-        "description": "Sets the nickname of an user",
+        "description": "Set the nickname of an user",
         "dm_permission": "false",
         options: [
             {
@@ -422,6 +440,8 @@ const commands = [
         "name": "suggestion",
         "description": "Suggest us something for the USF Bot",
         "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options: [
             {
                 "name": "type",
@@ -487,7 +507,9 @@ const commands = [
     {
         "name": "timestamp",
         "description": "Generate your timestamp",
-        "dm_permission": "false",
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options : [
             {
                 "name": "type",
@@ -538,7 +560,7 @@ const commands = [
     },
     {
         "name": "unban",
-        "description": "Unbans an user from the server",
+        "description": "Unban an user from the server",
         "dm_permission": "false",
         options: [
             {
@@ -577,7 +599,9 @@ const commands = [
     {
         "name": "user",
         "description": "Get informations about an user",
-        "dm_permission": "false",
+        "dm_permission": "true",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2],
         options: [
             {
                 "name": "target",

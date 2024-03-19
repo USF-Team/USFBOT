@@ -14,6 +14,7 @@ module.exports = {
     	.addStringOption(option=>option.setName('description').setDescription('Describe in detail what you want to add/change').setRequired(true))
     	.setDMPermission(false),
     async execute(interaction) {
+        await interaction.deferReply({ephemeral: true})
         const type = interaction.options.getString('type');
         const description = interaction.options.getString('description');
         const ask = new EmbedBuilder()
@@ -32,7 +33,7 @@ module.exports = {
         	.setEmoji('✅');
         const row = new ActionRowBuilder()
         	.addComponents(cancel, confirm);
-        const response = await interaction.reply({embeds: [ask], components: [row], ephemeral: true});
+        const response = await interaction.editReply({embeds: [ask], components: [row], ephemeral: true});
         const collectorFilter = i => i.user.id === interaction.user.id;
         try {
             const confirmation = await response.awaitMessageComponent({ filter: collectorFilter, time: 60_000 });
