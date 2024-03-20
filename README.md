@@ -5,7 +5,7 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 ## Commands:
 
-`/actions` Choose the action to execute on users (mute, kick, ban) | Required Permission: **Timeout = ModerateMembers, kick = KickMembers, Ban = BanMembers**
+`/actions` Choose the action to execute on users (setnick, mute, kick, ban) | Required Permission: **SetNick = ManageNicknames, Timeout = ModerateMembers, kick = KickMembers, Ban = BanMembers**
 
 `/avatar` Get the avatar of an user in an embed
 
@@ -30,6 +30,8 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 `/meme` Generates a random meme
 
+`/modnick` Allows you to moderate an user nickname with template "Moderated Name XXXXXX" X = number | Required Permission: **ManageNicknames**
+
 `/ping` Get the ping of the bot
 
 `/poll` creates a poll in the server, max 5 options | Required Permission: **Administrator**
@@ -42,9 +44,15 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 `/server` Get informations about the server where the command was ran in
 
+`/setnick` Set an user Nickname | Required Permission: **ManageNicknames**
+
 `/suggestion` Suggest us features or changes for the Bot
 
 `/timeout` timeout an user | Required Permission: **ModerateMembers**
+
+`/timestamp` Generates a Timestamp
+
+`/unban` Unbans an user from a guild
 
 `/unlock` Unlocks a channel with a reason | Required Permission **ManageChannels**
 
