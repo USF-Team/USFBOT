@@ -3,6 +3,12 @@ The USF Bot is a moderation and utility bot created by the USF Team with the sco
 
 Please note: We do NOT support self hosting and we won't reply to any questions regarding that.
 
+## Contacts
+[Discord Server](https://dsc.gg/usfteam)
+[Email](usfdiscordteam@gmail.com)
+
+[Organization Representative Email](robertbelotti06@gmail.com)
+
 ## Commands:
 
 `/actions` Choose the action to execute on users (setnick, mute, kick, ban) | Required Permission: **SetNick = ManageNicknames, Timeout = ModerateMembers, kick = KickMembers, Ban = BanMembers**
@@ -78,7 +84,7 @@ We are not responsible for a wrong use of our bot and we deserve the right to re
 6. try to circumvent a block or edit permissions of the bot
 
 ## What do I do if I find a bug or a security flaw?
-Send a mail to usfdiscordteam@gmail.com or open a **report** ticket in our [Discord server](https://dsc.gg/usfteam)
+Send a mail to usfdiscordteam@gmail.com or open a **Report** ticket in our [Discord server](https://dsc.gg/usfteam)
 
 ## Changes in our Terms of Service
 It is your responsibility to always stay informed of the latest Terms of Service. Even if you haven't read it beforehand, you may still be subject to punishment.
