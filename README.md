@@ -13,7 +13,7 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 ## Legal
 [Terms of Service](https://github.com/USF-Team/USFBOT/blob/main/Terms.md)
 
-[Privacy Policy](https://github.com/USF-Team/USFBOT/Privacy.md)
+[Privacy Policy](https://github.com/USF-Team/USFBOT/blob/main/Privacy.md)
 
 `License Type:` GNU GPL3
 
