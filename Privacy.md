@@ -1,0 +1,1 @@
+Find privacy policy in README.md
