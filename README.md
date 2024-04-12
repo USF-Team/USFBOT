@@ -6,9 +6,9 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 ## Contacts
 [Discord Server](https://dsc.gg/usfteam)
 
-[Email](usfdiscordteam@gmail.com)
+[Email](mailto:usfdiscordteam@gmail.com)
 
-[Organization Representative Email](robertbelotti06@gmail.com)
+[Organization Representative Email](mailto:robertbelotti06@gmail.com)
 
 ## Commands:
 
