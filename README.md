@@ -11,11 +11,11 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 [Organization Representative Email](mailto:robertbelotti06@gmail.com)
 
 ## Legal
+`License Type:` GNU GPL3
+
 [Terms of Service](https://github.com/USF-Team/USFBOT/blob/main/Terms.md)
 
 [Privacy Policy](https://github.com/USF-Team/USFBOT/blob/main/Privacy.md)
-
-`License Type:` GNU GPL3
 
 ## Commands
 
