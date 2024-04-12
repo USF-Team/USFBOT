@@ -1,7 +1,14 @@
 # USF BOT
-The USF Bot is a moderation and utility bot created by the USF Team with the scope of making servers easier to moderate with features needed for that.
+The USF Bot is a Multipurpose Discord Bot created with the scope of helping every Servers with Moderation and Management, making some actions faster with Utility functions and Entertain the Community with Fun features! The Bot is 100% free and features we add are mostly suggested by our Community Members and Members in servers where the Bot is present.
 
-Please note: We do NOT support self hosting and we won't reply to any questions regarding that.
+## Informations
+[Commands] -- Updating File, Currently viewable in this page
+[Status Page](https://usf.instatus.com/)
+
+### Suggestions
+Update Coming Soon
+### Reports
+Update Coming Soon
 
 ## Contacts
 [Discord Server](https://dsc.gg/usfteam)
