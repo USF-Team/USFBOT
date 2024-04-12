@@ -10,7 +10,14 @@ Please note: We do NOT support self hosting and we won't reply to any questions 
 
 [Organization Representative Email](mailto:robertbelotti06@gmail.com)
 
-## Commands:
+## Legal
+[Terms of Service](https://github.com/USF-Team/USFBOT/Terms.md)
+
+[Privacy Policy](https://github.com/USF-Team/USFBOT/Privacy.md)
+
+`License Type:` GNU GPL3
+
+## Commands
 
 `/actions` Choose the action to execute on users (setnick, mute, kick, ban) | Required Permission: **SetNick = ManageNicknames, Timeout = ModerateMembers, kick = KickMembers, Ban = BanMembers**
 
