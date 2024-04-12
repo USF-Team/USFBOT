@@ -3,6 +3,7 @@ The USF Bot is a Multipurpose Discord Bot created with the scope of helping ever
 
 ## Informations
 [Commands] -- Updating File, Currently viewable in this page
+
 [Status Page](https://usf.instatus.com/)
 
 ### Suggestions
