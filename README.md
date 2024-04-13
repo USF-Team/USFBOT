@@ -4,6 +4,8 @@ The USF Bot is a Multipurpose Discord Bot created with the scope of helping ever
 ## Informations
 [Commands](https://github.com/USF-Team/USFBOT/blob/main/Commands.md) -- Updating File, Currently viewable in this page
 
+[Organization Website](https://usfteam.pages.dev/)
+
 [Status Page](https://usf.instatus.com/)
 
 ### Suggestions
@@ -17,6 +19,12 @@ Update Coming Soon
 [Email](mailto:usfdiscordteam@gmail.com)
 
 [Organization Representative Email](mailto:robertbelotti06@gmail.com)
+
+## Help & Support
+
+[Discord](https://dsc.gg/usfteam)
+
+[Email](mailto:usfdiscordteam@gmail.com)
 
 ## Legal
 `License Type:` GNU GPL3
@@ -79,6 +87,3 @@ Update Coming Soon
 `/unlock` Unlocks a channel with a reason | Required Permission **ManageChannels**
 
 `/user` Get informations about an user (Username, ID, avatar and when they joined discord
-
-⚠️ You can read more about bots we make in our website! **https://usfteam.pages.dev/**
-If you need support, you can join our Discord Server https://dsc.gg/usfteam or send a mail to usfdiscordteam@gmail.com
