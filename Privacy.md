@@ -2,7 +2,7 @@
 DISCLAIMER: We do not knowingly collect data of children under 16. Under article 8 of the GDPR, you are required to have your guardian(s) consent for you before using our products and services if you are under 16.
 
 ## What data do we gather?
-- Guild and User IDs when they invite the bot and gets reported to us to blacklist them.
+- Join and Leave logs for servers who invite the bot in
 - Reports and suggestions sent to us
 
 ## Why do we need this data?
